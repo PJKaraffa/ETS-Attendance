@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 30px;
+  background: #f4f4f4;
+}
+
+h1 {
+  text-align: center;
+}
+
+.add-box {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  width: 250px;
+}
+
+button {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+th, td {
+  border: 1px solid #999;
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  background: #333;
+  color: white;
+}
+
+input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+}
