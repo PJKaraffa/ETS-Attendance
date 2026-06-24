@@ -1,37 +1,19 @@
-function addStudent() {
-  const nameInput = document.getElementById("studentName");
-  const name = nameInput.value.trim();
+const startDate = new Date("2026-08-31");
+const endDate = new Date("2027-06-18");
 
-  if (name === "") {
-    alert("Please enter a student name.");
-    return;
+function getSchoolDays(start, end) {
+  let dates = [];
+  let current = new Date(start);
+
+  while (current <= end) {
+    let day = current.getDay();
+
+    if (day >= 1 && day <= 5) {
+      dates.push(new Date(current));
+    }
+
+    current.setDate(current.getDate() + 1);
   }
 
-  const tbody = document.querySelector("#attendanceTable tbody");
-  const row = document.createElement("tr");
-
-  row.innerHTML = `
-    <td>${name}</td>
-    <td><input type="checkbox" onchange="updateTotal(this)"></td>
-    <td><input type="checkbox" onchange="updateTotal(this)"></td>
-    <td><input type="checkbox" onchange="updateTotal(this)"></td>
-    <td><input type="checkbox" onchange="updateTotal(this)"></td>
-    <td><input type="checkbox" onchange="updateTotal(this)"></td>
-    <td class="total">0</td>
-  `;
-
-  tbody.appendChild(row);
-  nameInput.value = "";
-}
-
-function updateTotal(checkbox) {
-  const row = checkbox.closest("tr");
-  const checks = row.querySelectorAll("input[type='checkbox']");
-  let total = 0;
-
-  checks.forEach(box => {
-    if (box.checked) total++;
-  });
-
-  row.querySelector(".total").textContent = total;
+  return dates;
 }
